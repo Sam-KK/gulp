@@ -1,0 +1,28 @@
+.bread-crumb {
+    padding: 0 20px;
+    border-bottom: 1px solid #bebebe;
+    clear: both;
+    overflow: hidden;
+    li {
+        float: left;
+        a {
+            display: block;
+            color: #969696;
+            font-size: 12px;
+            height: 45px;
+            line-height: 45px;
+            &:after {
+                display: inline-block;
+                content: "-";
+                margin: 0 6px;
+            }
+        }
+        &:last-child {
+            a {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+}

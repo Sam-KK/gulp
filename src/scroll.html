@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/common.min.css">
+    <script src="libs/jquery/jquery-1.12.1.min.js"></script>
+    <!--<script src="js/view.js"></script>-->
+</head>
+<style>
+    .top-bar {
+        width: 100%;
+        background-color: rgba(26,26,26,.9);
+        height: 60px;
+    }
+    .prod-container {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        position: relative;
+        z-index: 2;
+    }
+    .wrapper {
+        position: relative;
+        width: 1200px;
+        margin: 0 auto;
+    }
+    .prod-container .prod-container-top {
+        width: 1200px;
+        position: relative;
+        margin: auto;
+        z-index: 0;
+        clear: both;
+        overflow: hidden;
+    }
+    .prod-container-left {
+        position: relative;
+        z-index: 0;
+        float: left;
+        width: 515px;
+        margin-top: 5px;
+        margin-bottom: 48px;
+        height: auto;
+    }
+    .prod-container-right {
+        float: right;
+        width: 508px;
+    }
+    .col img {
+        display: block;
+        width: 100%;
+    }
+
+</style>
+<body>
+<div class="top-bar"></div>
+<div class="prod-container">
+    <div class="wrapper">
+        <div class="prod-container-top">
+            <div class="prod-container-left col">
+                <div id="prod-container-left">
+                    <div style="width: 515px">
+                        <img src="images/list/adver2.png" width="100%" alt="">
+                        <img src="images/list/adver2.png" width="100%" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="prod-container-right col">
+                <div class="detail">
+                    <img src="images/list/p_01.png" width="100%" alt="">
+                    <img src="images/list/p_02.png" width="100%" alt="">
+                    <img src="images/list/p_03.png" width="100%" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bottom-bar col">
+    <img src="images/list/p_04.png" width="100%" alt="">
+    <img src="images/list/p_05.jpg" width="100%" alt="">
+    <img src="images/list/p_06.jpg" width="100%" alt="">
+</div>
+
+<script>
+    window.onload = function () {
+        function scrollFixed() {
+            var t,
+                a = 0,
+                n = $(".prod-container-left"),
+                s = n.outerHeight(!0),
+                i = $(".prod-container").offset().top,
+                e = $(".prod-container").outerHeight(!0),
+                o = 0,
+                r = !1;
+            console.log(".prod-container-left.outerHeight: " + s);
+            console.log(".prod-container.offset().top: " + i);
+            console.log(".prod-container.outerHeight: " + e);
+            $(window).on({
+                scroll: function() {
+                    o = $(this).scrollLeft(),
+                        t = $(this).scrollTop(),
+                        e = $(".prod-container").outerHeight(!0),
+                        e + i > t + s ? (a = Math.max($(".prod-container-left").offset().top - t, 0),
+                            $("#prod-container-left").css({
+                                position: "fixed",
+                                top: a,
+                                left: r ? -o : $(".prod-container-left").offset().left
+                            })) : (a = e - s,
+                            $("#prod-container-left").css({
+                                position: "absolute",
+                                top: a,
+                                left: 0
+                            }));
+                    document.title = t;
+                    console.log("a: " + a);
+                    console.log("e: " + e);
+                    console.log("i：" + i);
+                    console.log("t：" + t);
+                    console.log("s：" + s);
+                },
+                resize: function() {
+                    r = document.documentElement.clientWidth < 1200 ? !0 : !1,
+                        $(this).trigger("scroll")
+                }
+
+            }).trigger("resize")
+        }
+        scrollFixed();
+    }
+</script>
+</body>
+</html>

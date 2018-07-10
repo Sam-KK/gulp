@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>list</title>
+    <link rel="stylesheet" type="text/css" href="css/common.min.css">
+    <link rel="stylesheet" type="text/css" href="css/list.min.css">
+    <script src="libs/jquery/jquery-1.12.1.min.js"></script>
+    <script src="js/list.js"></script>
+</head>
+<body>
+<%include components/header.html %>
+<div class="container">
+    <%include components/modules/bread-crumb.html %>
+    <div class="list-container">
+        <h2>女士连衣裙</h2>
+
+        <div class="module-item">
+            <div class="soft-tab">
+                <span class="filter event-filter" id="event-filter">筛选</span>
+            </div>
+
+            <ul class="shopping-list">
+                <li>
+                    <a href="" class="shopping-img">
+                        <img src="images/list/list_01.png" alt="">
+                    </a>
+                    <div class="shopping-info">
+                        <div class="shopping-price">
+                            <del>¥ 398</del>
+                            <span>¥ 398</span>
+                        </div>
+                        <a class="product-name">2017春夏新款 女士上衣2017春夏新款 女士上衣2017春夏新款 女士上衣</a>
+                        <p class="online-only">仅线上出售</p>
+                        <p class="settlement">结算时享受7折优惠</p>
+                        <a class="more-color">更多颜色</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="" class="shopping-img">
+                        <img src="images/list/list_01.png" alt="">
+                    </a>
+                    <div class="shopping-info">
+                        <div class="shopping-price">
+                            <del>¥ 398</del>
+                            <span>¥ 398</span>
+                        </div>
+                        <a class="product-name">2017春夏新款 女士上衣2017春夏新款 女士上衣2017春夏新款 女士上衣</a>
+                        <p class="online-only">仅线上出售</p>
+                        <p class="settlement">结算时享受7折优惠</p>
+                        <a class="more-color">更多颜色</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 加载更多 -->
+        <div class="load-more"><img src="images/list/loading.gif" alt=""></div>
+    </div>
+</div>
+<%include components/footer.html %>
+
+<!-- 筛选弹层 -->
+<div class="filter-dialog" id="event-dialog">
+    <div class="filter-head">筛选您的搜索</div>
+    <!-- 这里放滚动内容 -->
+    <div class="filter-content">
+        <!-- 价格 -->
+        <div class="sift-row">
+            <div class="sift-head event-panel">
+                价格 <i class="icon icon-plus icon-minus"></i>
+            </div>
+            <div class="filter-pane panel-collapse">
+                <ul class="filter-price two-subsets">
+                    <li><span>$25 - $50</span></li>
+                    <li><span>$50 - $100</span></li>
+                    <li><span>$100 - $150</span></li>
+                    <li><span>$150 - $300</span></li>
+                    <li><span>$300 +</span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 尺码 -->
+        <div class="sift-row">
+            <div class="sift-head event-panel">
+                尺码<i class="icon icon-plus"></i>
+            </div>
+            <div class="filter-pane panel-collapse">
+                <ul class="filter-size">
+                    <li><span>SMALL</span></li>
+                    <li><span>MEDIUM</span></li>
+                    <li><span>Large</span></li>
+                    <li><span>48</span></li>
+                    <li><span>50</span></li>
+                    <li><span>52</span></li>
+                    <li><span>54</span></li>
+                    <li><span>56</span></li>
+                    <li><span>60</span></li>
+                    <li><span>32W X 29IN</span></li>
+                    <li><span>32W X 32IN</span></li>
+                    <li><span>32W X 31IN</span></li>
+                    <li><span>30W X 29IN</span></li>
+                    <li><span>32W X 30IN</span></li>
+                    <li><span>32W X 32IN</span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 颜色 -->
+        <div class="sift-row">
+            <div class="sift-head event-panel">
+                颜色<i class="icon icon-plus"></i>
+            </div>
+            <div class="filter-pane panel-collapse">
+                <ul class="filter-color two-subsets">
+                    <li>
+                        <span><img src="images/list/black.png" alt="">黑色</span>
+                    </li>
+                    <li>
+                        <span><img src="images/list/yellow.png" alt="">黄色</span>
+                    </li>
+                    <li>
+                        <span><img src="images/list/golden.png" alt="">金色</span>
+                    </li>
+                    <li>
+                        <span><img src="images/list/gray.png" alt="">灰色</span>
+                    </li>
+                    <li>
+                        <span><img src="images/list/violet.png" alt="">紫色</span>
+                    </li>
+                    <li class="disabled">
+                        <span><img src="images/list/pink.png" alt="">粉色</span>
+                    </li>
+                    <li>
+                        <span><img src="images/list/green.png" alt="">绿色</span>
+                    </li>
+                    <li>
+                        <span><img src="images/list/blue.png" alt="">蓝色</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 场合 -->
+        <div class="sift-row">
+            <div class="sift-head event-panel">
+                场合
+                <i class="icon icon-plus"></i>
+            </div>
+            <div class="filter-pane panel-collapse">
+                <ul class="filter-occasion two-subsets">
+                    <li><span>一般场合</span></li>
+                    <li><span>特殊场合</span></li>
+                    <li><span>工作场合</span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 版型 -->
+        <div class="sift-row">
+            <div class="sift-head event-panel">
+                版型
+                <i class="icon icon-plus"></i>
+            </div>
+            <div class="filter-pane panel-collapse">
+                <ul class="type-version two-subsets">
+                    <li><span>正常型</span></li>
+                    <li><span>修身型</span></li>
+                    <li><span>直筒型</span></li>
+                    <li><span>紧身型</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="filter-bottom">
+        <a class="complete" id="event-complete" href="javascript:void(0);" title="">完成</a>
+        <a class="cancel" id="event-cancel" href="javascript:void(0);" title="">取消</a>
+    </div>
+</div>
+<!-- end -->
+</body>
+</html>
