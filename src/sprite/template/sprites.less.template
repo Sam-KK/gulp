@@ -85,6 +85,10 @@
 	background-size: @sprite-total-width @sprite-total-height;
 }
 
+.icon-size(){
+	background-size: @spritesheet-width @spritesheet-height;
+}
+
 .retina-sprite(@retina-sprite) {
     .sprite-position(@retina-sprite);
 	.sprite-background-size(@retina-sprite);
