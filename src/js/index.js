@@ -5,7 +5,7 @@
 * @Last Modified time: 2018-07-09 17:58:29
 */
 $(function () {
-    var swiper = new Swiper('.swiper-container', {
+    let swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
@@ -15,14 +15,4 @@ $(function () {
     });
 
     [1, 3, 4].map(x => x + 1);
-
-    const funcs = []
-    for (let i = 0; i < 10; i++) {
-        funcs.push(function() {
-            console.log(i)
-        })
-    }
-    funcs.forEach(func => func());
-
-    var people = name => 'hello' + name
 });

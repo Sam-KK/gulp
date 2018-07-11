@@ -5,19 +5,20 @@
 	background-image: url('../images/icon.png');
 	vertical-align: middle;
 }
+
 // pc icon
-.icon-crm {
-	.sprite(@crm);
-}
-.icon-n {
-	.sprite(@n);
-}
-.icon-metro {
-	.sprite(@metro);
-}
-.icon-oms {
-	.sprite(@oms);
-}
+	.icon-crm {
+		.sprite(@crm);
+	}
+	.icon-n {
+		.sprite(@n);
+	}
+	.icon-metro {
+		.sprite(@metro);
+	}
+	.icon-oms {
+		.sprite(@oms);
+	}
 
 @media screen and (max-width: 1024px),
 screen and (-webkit-min-device-pixel-ratio:2),
@@ -31,8 +32,11 @@ screen and (min-device-pixel-ratio:2) {
 	}
 }
 
-// mob
+// mob icon
 @media screen and (max-width: 1024px) {
+	.icon-crm {
+		.sprite(@crm-m);
+	}
 }
 
 
