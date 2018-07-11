@@ -2,7 +2,7 @@
 @import "../../sprite/styles/sprites.less";
 .icon {
 	display: inline-block;
-	background-image: url("../../images/icon.png");
+	background-image: url('../images/icon.png');
 	vertical-align: middle;
 }
 .icon-alipay {
@@ -11,12 +11,20 @@
 .icon-ems-cart {
 	.sprite(@ems-cart);
 }
-.icon-sf-cart {
-	.sprite(@sf-cart);
+.icon-crm {
+	.sprite(@crm);
 }
-.icon-menu {
-	.sprite(@menu);
+.icon-n {
+	.sprite(@n);
 }
+.icon-metro {
+	.sprite(@metro);
+}
+.icon-oms {
+	.sprite(@oms);
+}
+
+
 @media screen and (max-width: 1024px),
 screen and (-webkit-min-device-pixel-ratio:2),
 screen and (min--moz-device-pixel-ratio:2),
@@ -24,19 +32,11 @@ screen and (-o-min-device-piratio:200/100),
 screen and (min-device-pixel-ratio:2) {
 
 	.icon {
-		background: url("../../images/icon@2x.png");
+		background-image: url('../images/icon@2x.png');
+		.icon-size();
 	}
+}
 
-	.icon-alipay {
-		.retina-sprite(@alipay);
-	}
-	.icon-ems-cart {
-		.retina-sprite(@ems-cart);
-	}
-	.icon-sf-cart {
-		.retina-sprite(@sf-cart);
-	}
-	.icon-menu {
-		.retina-sprite(@menu);
-	}
+// mob
+@media screen and (max-width: 1024px) {
 }
