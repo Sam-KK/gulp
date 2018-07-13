@@ -3,30 +3,45 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/common.min.css"> <!-- CSS reset -->
+    <!--<link rel="stylesheet" type="text/css" href="css/common.min.css"> &lt;!&ndash; CSS reset &ndash;&gt;-->
     <link rel="stylesheet" href="css/style.min.css"> <!-- Resource style -->
 
 </head>
 <body>
-<header class="cd-main-header">
-    <a class="cd-logo" href="#0"><img src="" alt="Logo"></a>
-
-    <nav class="cd-nav">
-        <ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
-            <li class="has-children">
-                <a href="#">Clothing</a>
-
-                <ul class="cd-secondary-nav is-hidden">
+<header class="header" id="header">
+    <div class="container">
+        <h1 class="logo">
+            <a href="">
+                <img src="images/common/logo.png" alt="">
+            </a>
+        </h1>
+        <div class="header-search">
+            <a href="" class="search-trigger event-search-trigger">
+                <i class="icon icon-search"></i>
+            </a>
+            <a href="#" class="nav-trigger event-nav-trigger">
+                <i class="icon icon-menu"></i>
+            </a>
+        </div>
+        <div class="search-form event-search-form" id="search-form">
+            <form>
+                <input class="search-input" type="text" placeholder="Search...">
+            </form>
+        </div>
+        <ul class="header-nav" id="nav">
+            <li class="nav-item has-children">
+                <a class="nav-link" href="#">Clothing <i class="icon icon-down"></i></a>
+                <ul class="secondary-nav is-hidden">
                     <li class="go-back"><a href="#0">Menu</a></li>
                     <li class="see-all"><a href="#">All Clothing</a></li>
-                    <li class="has-children">
-                        <a href="#">Accessories</a>
+                    <li class="cell has-children">
+                        <a class="secondary-title" href="#">Accessories</a>
 
                         <ul class="is-hidden">
                             <li class="go-back"><a href="#0">Clothing</a></li>
                             <li class="see-all"><a href="#">All Accessories</a></li>
                             <li class="has-children">
-                                <a href="#0">Beanies</a>
+                                <a href="#0">Beanies <i class="icon icon-arr"></i></a>
 
                                 <ul class="is-hidden">
                                     <li class="go-back"><a href="#0">Accessories</a></li>
@@ -37,7 +52,7 @@
                                 </ul>
                             </li>
                             <li class="has-children">
-                                <a href="#0">Caps &amp; Hats</a>
+                                <a href="#0">Caps &amp; Hats <i class="icon icon-arr"></i></a>
 
                                 <ul class="is-hidden">
                                     <li class="go-back"><a href="#0">Accessories</a></li>
@@ -55,9 +70,8 @@
                             <li><a href="#">Watches</a></li>
                         </ul>
                     </li>
-
-                    <li class="has-children">
-                        <a href="#">Bottoms</a>
+                    <li class="cell has-children">
+                        <a class="secondary-title" href="#">Bottoms</a>
 
                         <ul class="is-hidden">
                             <li class="go-back"><a href="#0">Clothing</a></li>
@@ -79,9 +93,8 @@
                             <li><a href="#0">Shorts</a></li>
                         </ul>
                     </li>
-
-                    <li class="has-children">
-                        <a href="#">Jackets</a>
+                    <li class="cell has-children">
+                        <a class="secondary-title" href="#">Jackets</a>
 
                         <ul class="is-hidden">
                             <li class="go-back"><a href="#0">Clothing</a></li>
@@ -94,9 +107,8 @@
                             <li><a href="#">Parkas</a></li>
                         </ul>
                     </li>
-
-                    <li class="has-children">
-                        <a href="#">Tops</a>
+                    <li class="cell has-children">
+                        <a class="secondary-title" href="#">Tops</a>
 
                         <ul class="is-hidden">
                             <li class="go-back"><a href="#0">Clothing</a></li>
@@ -124,128 +136,54 @@
                     </li>
                 </ul>
             </li>
-
-            <li class="has-children">
-                <a href="#">Gallery</a>
-
-                <ul class="cd-nav-gallery is-hidden">
-                    <li class="go-back"><a href="#0">Menu</a></li>
+            <li class="nav-item has-children">
+                <a class="nav-link" href="#">Gallery <i class="icon icon-down"></i></a>
+                <ul class="nav-gallery is-hidden">
+                    <li class="go-back"><a href="#">Menu</a></li>
                     <li class="see-all"><a href="#">Browse Gallery</a></li>
                     <li>
-                        <a class="cd-nav-item" href="#">
+                        <a class="" href="#">
                             <img src="images/common/img.jpg" alt="Product Image">
                             <h3>Product #1</h3>
                         </a>
                     </li>
 
                     <li>
-                        <a class="cd-nav-item" href="#">
+                        <a class="" href="#">
                             <img src="images/common/img.jpg" alt="Product Image">
                             <h3>Product #2</h3>
                         </a>
                     </li>
 
                     <li>
-                        <a class="cd-nav-item" href="#">
+                        <a class="" href="#">
                             <img src="images/common/img.jpg" alt="Product Image">
                             <h3>Product #3</h3>
                         </a>
                     </li>
 
                     <li>
-                        <a class="cd-nav-item" href="#">
+                        <a class="" href="#">
                             <img src="images/common/img.jpg" alt="Product Image">
                             <h3>Product #4</h3>
                         </a>
                     </li>
                 </ul>
             </li>
-
-            <li class="has-children">
-                <a href="#">Services</a>
-                <ul class="cd-nav-icons is-hidden">
-                    <li class="go-back"><a href="#0">Menu</a></li>
-                    <li class="see-all"><a href="#">Browse Services</a></li>
-                    <li>
-                        <a class="cd-nav-item item-1" href="#">
-                            <h3>Service #1</h3>
-                            <p>This is the item description</p>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="cd-nav-item item-2" href="#">
-                            <h3>Service #2</h3>
-                            <p>This is the item description</p>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="cd-nav-item item-3" href="#">
-                            <h3>Service #3</h3>
-                            <p>This is the item description</p>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="cd-nav-item item-4" href="#">
-                            <h3>Service #4</h3>
-                            <p>This is the item description</p>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="cd-nav-item item-5" href="#">
-                            <h3>Service #5</h3>
-                            <p>This is the item description</p>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="cd-nav-item item-6" href="#">
-                            <h3>Service #6</h3>
-                            <p>This is the item description</p>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="cd-nav-item item-7" href="#">
-                            <h3>Service #7</h3>
-                            <p>This is the item description</p>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="cd-nav-item item-8" href="#">
-                            <h3>Service #8</h3>
-                            <p>This is the item description</p>
-                        </a>
-                    </li>
-                </ul>
+            <li class="nav-item has-children">
+                <a class="nav-link" href="#">Services <i class="icon icon-down"></i></a>
+                <!--<ul class="cd-nav-icons"></ul>-->
             </li>
-
-            <li><a href="#">Standard</a></li>
-        </ul> <!-- primary-nav -->
-    </nav> <!-- cd-nav -->
-
-    <ul class="cd-header-buttons">
-        <li><a class="cd-search-trigger" href="#cd-search">Search<span></span></a></li>
-        <li><a class="cd-nav-trigger" href="#cd-primary-nav">Menu<span></span></a></li>
-    </ul> <!-- cd-header-buttons -->
+            <li class="nav-item has-children">
+                <a class="nav-link" href="#">Standard <i class="icon icon-down"></i></a>
+                <!--<ul class="secondary-nav"></ul>-->
+            </li>
+        </ul>
+    </div>
 </header>
 
-<main class="cd-main-content">
-    <!-- your content here -->
 
-    <div class="cd-overlay"></div>
-</main>
-
-
-<div id="cd-search" class="cd-search">
-    <form>
-        <input type="search" placeholder="Search...">
-    </form>
-</div>
-
+<script type="text/javascript" src="libs/jquery/jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
 </body>
 </html>
