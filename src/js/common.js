@@ -4,11 +4,44 @@
  **/
 
 $(function () {
-    let MqL = 1024,
+    let w = window.w || {},
+        resizeW = 1024,
         $header = $('#header'),
         $nav = $('#nav');
+    // 阻止移动端浏览器滑动
+    w.preventHandler = function() {
+        event.preventDefault();
+    };
+    w.preventScroll = function (flag) {
+        let supportsPassive = false,
+            flag = flag ? flag : false;
+        // 判断浏览器是否支持 passive特性
+        try {
+            let opts = Object.defineProperty({}, 'passive', {
+                get: function() {
+                    supportsPassive = true;
+                }
+            });
+            window.addEventListener('prevent-scroll', null, opts);
+        } catch (e) {}
+
+        if (flag) {
+            document.addEventListener(
+                'touchmove',
+                w.preventHandler,
+                supportsPassive ? { passive: false } : false
+            );
+        } else {
+            document.removeEventListener(
+                'touchmove',
+                w.preventHandler,
+                false
+            );
+        }
+    }
     // mobile 点击菜单图标打开横向菜单
     $('.event-nav-trigger').on('click', function (e) {
+        w.preventScroll(true);
         event.preventDefault();
         if ($('.event-container').hasClass('nav-is-visible')) {
             closeNav();
@@ -70,7 +103,7 @@ $(function () {
             //toggle search visibility
             $('.event-search-form').toggleClass('is-visible');
             $('.event-search-trigger').toggleClass('search-is-visible');
-            if ($(window).width() > MqL && $('.event-search-form').hasClass('is-visible')) $('.cd-search').find('input[type="search"]').focus();
+            if ($(window).width() > resizeW && $('.event-search-form').hasClass('is-visible')) $('.cd-search').find('input[type="search"]').focus();
             ($('.event-search-form').hasClass('is-visible')) ? $('.cd-overlay').addClass('is-visible') : $('.cd-overlay').removeClass('is-visible');
         }
     }
@@ -84,7 +117,7 @@ $(function () {
             a = 'client';
             e = document.documentElement || document.body;
         }
-        if (e[a + 'Width'] >= MqL) {
+        if (e[a + 'Width'] >= resizeW) {
             return true;
         } else {
             return false;
