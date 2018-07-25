@@ -7,7 +7,7 @@ $(function () {
     let w = window.w || {},
         resizeW = 1024,
         $header = $('#header'),
-        $nav = $('#nav');
+        $nav = $('#nav');html(Some text and markup)
     // 阻止移动端浏览器滑动
     w.preventHandler = function() {
         event.preventDefault();
