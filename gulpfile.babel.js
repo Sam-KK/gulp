@@ -2,17 +2,19 @@
 * @Author: YSH7765
 * @Date:   2018-07-09 14:36:10
 * @Last Modified by:   xianghong.yan
-* @Last Modified time: 2018-07-11 13:16:26
+* @Last Modified time: 2018-07-30 16:42:08
 */
 let browserSync  = require('browser-sync').create(),
     reload       = browserSync.reload,
     gulp         = require('gulp'),
     autoPreFixer = require('gulp-autoprefixer'),
     babel        = require('gulp-babel'),
+    base64       = require('gulp-base64'),
     cache        = require('gulp-cache'),
     clean        = require('gulp-clean'),
     cleanCss     = require('gulp-clean-css'),
     ejs          = require('gulp-ejs'),
+    htmlmin      = require('gulp-htmlmin'),
     prettify     = require('gulp-jsbeautifier'),
     less         = require('gulp-less'),
     lessChanged  = require('gulp-less-changed'),
@@ -21,6 +23,9 @@ let browserSync  = require('browser-sync').create(),
     notify       = require('gulp-notify'),
     plumber      = require('gulp-plumber'),
     rename       = require('gulp-rename'),
+    rev          = require('gulp-rev'),
+    uglify       = require('gulp-uglify'),
+    usemin       = require('gulp-usemin'),
     spriteSmith  = require('gulp.spritesmith'),
     runSequence  = require('run-sequence');
 
@@ -123,10 +128,11 @@ gulp.task(`less`, () => {
         .pipe(lessChanged())
         .pipe(less())
         .pipe(autoPreFixer(autoPreFixerOptions))
-        .pipe(cleanCss())
         .pipe(rename({
             suffix: `.min`
         }))
+        .pipe(gulp.dest(`src/css/`))
+        .pipe(cleanCss())
         .pipe(gulp.dest(paths.styles.dest))
         .pipe(reload({
             stream: true
@@ -161,10 +167,13 @@ gulp.task(`includesHtml`, () => {
 // ES6
 gulp.task(`Script`, () => {
     return gulp.src(paths.scripts.src + `/*.js`)
-        .pipe(plumber())
+        .pipe(plumber({
+            errorHandler: notify.onError(`Error: <%= error.message %>`)
+        }))
         .pipe(babel({
             presets: [`es2015`]
         }))
+        .pipe(uglify())
         .pipe(newer(paths.scripts.dest))
         .pipe(gulp.dest(paths.scripts.dest));
 });
@@ -198,6 +207,61 @@ gulp.task(`copyFonts`, () => {
             errorHandler: notify.onError(` Error: <%= error.message %> `)
         }))
         .pipe(gulp.dest(paths.fonts.dest));
+});
+
+// usemin
+gulp.task('usemin', () => {
+    return gulp.src('./src/*.html')
+    .pipe(usemin({
+        html: [
+            function() {
+                return htmlmin({
+                    removeComments: true,  //清除HTML注释
+                    removeStyleLinkTypeAttributes: true,  //删除<style>和<link>的type="text/css"
+                    minifyJS: true,  //压缩页面JS
+                    minifyCSS: true  //压缩页面CSS
+                })
+            }
+        ],
+        css: [
+            function () {
+                return cleanCss()
+            }, function () {
+                return rev()
+            }
+        ],
+        css1: [
+            function () {
+                return cleanCss()
+            }, function () {
+                return rev()
+            }
+        ],
+        js: [
+            function () {
+                return uglify()
+            }, function () {
+                return rev()
+            }
+        ],
+        js1: [
+            function () {
+                return uglify()
+            }, function () {
+                return rev()
+            }
+        ]
+    }))
+    .pipe(gulp.dest(paths.dist.src + '/'));
+});
+
+// usemin后执行base64进行优化
+gulp.task('base64', ['usemin'], () => {
+    return gulp.src(`src/css/*.min.css`)
+    .pipe(base64({
+        maxImageSize: 3 * 1024, // bytes
+    }))
+    .pipe(gulp.dest(`dist/css`))
 });
 
 
@@ -261,3 +325,7 @@ gulp.task(`default`, () => {
 });
 
 
+// 打包
+gulp.task('build', ['base64'], function () {
+    // body...
+});

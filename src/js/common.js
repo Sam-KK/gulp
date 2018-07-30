@@ -7,14 +7,14 @@ $(function () {
     let w = window.w || {},
         resizeW = 1024,
         $header = $('#header'),
-        $nav = $('#nav');html(Some text and markup)
+        $nav = $('#nav');
     // 阻止移动端浏览器滑动
     w.preventHandler = function() {
         event.preventDefault();
     };
     w.preventScroll = function (flag) {
-        let supportsPassive = false,
-            flag = flag ? flag : false;
+        let supportsPassive = false;
+            //flag = flag ? flag : false;
         // 判断浏览器是否支持 passive特性
         try {
             let opts = Object.defineProperty({}, 'passive', {
